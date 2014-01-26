@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Cadastro</title>
+		<link rel="stylesheet" href="estilocad.css" type="text/css" media="screen" charset="utf-8"/>
+	</head>
+	<body>
+		<div class="container">
+			<form action="" id="cadastro">
+				<label for="ds-login">Login</label>
+				<input type="text" name="ds-login" id="ds-login" />
+				<label for="ds-nome">Nome</label>
+				<input type="text" name="ds-nome" id="ds-nome" />
+				<label for="ds-email">E-mail</label>
+				<input type="text" name="ds-email" id="ds-email" />
+				<label for="ds-senha">Senha</label>
+				<input type="text" name="ds-senha" id="ds-senha" />
+				<label for="cf-senha">Confirmar senha</label>
+				<input type="text" name="cf-senha" id="cf-senha" />
+				<input type="submit" value="Cadastrar" />
+			</form>
+		</div>
+	</body>
+</html>
+<script>
+	document.querySelector("#cadastro").onsubmit = function() {
+		inputs = document.querySelectorAll("#cadastro input[type=text]");
+		valido = true; // formulário válido
+		for(i=0; i<inputs.length; i++){
+			input = inputs[i]; 
+			if(input.value == ''){
+				input.className = 'erro';
+				valido = false;
+			}
+		}
+		return valido; // se não válido, não submete
+	};
+</script>
